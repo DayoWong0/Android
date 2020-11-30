@@ -1,2 +1,4 @@
+include ':app:02activitylifecycletest'
+include ':app:02activitytest'
 include ':app'
 rootProject.name = "Android"
