@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/app/02activitylifecycletest" />
             <option value="$PROJECT_DIR$/app/02activitytest" />
             <option value="$PROJECT_DIR$/app/02baseactivity" />
+            <option value="$PROJECT_DIR$/app/0301uiwidgettest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

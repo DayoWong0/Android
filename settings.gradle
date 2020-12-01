@@ -1,3 +1,4 @@
+include ':app:0301uiwidgettest'
 include ':app:02baseactivity'
 include ':app:02activitylifecycletest'
 include ':app:02activitytest'

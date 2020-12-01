@@ -54,7 +54,7 @@ Android 期末，之前只是简单修改了 booksource 里的源码，这次期
 
 - 2020/12/1
 
-  第  章
+  第  2、3章
 
 - 2020/12/2
 
@@ -154,7 +154,7 @@ Android 期末，之前只是简单修改了 booksource 里的源码，这次期
 
   ![img](img/README/activity_lifecycle.png)
 
-  - DialogActivity类需要继承自
+  - DialogActivity类需要继承自 Activity 而不是 AppCompatActivity
 
     ```java
     package com.example.a02activitylifecycletest;
@@ -259,5 +259,65 @@ Android 期末，之前只是简单修改了 booksource 里的源码，这次期
 
 ## 第三章 UI
 
-### TextView
+### 问题
+
+- 写出的页面屏幕适应性不好
+- ListView 和 RecycleView 看这书第一遍的时候没学会
+
+### 前言
+
+UI 属性很多，用的时候查文档。
+
+### 控件
+
+#### TextView
+
+```xml
+// 文字居中
+android:gravity="center"
+```
+
+- 字体大小用 sp 为单位
+
+#### Button
+
+监听事件
+
+- 匿名内部类
+- 当前活动实现 View.OnClickListener 的 onClick 方法
+
+#### EditText
+
+```xml
+android:hint="hint属性：提示信息"
+android:maxLines="2" 文字显示最多的行数
+```
+
+---
+
+获取 EditText 中的内容
+
+```java
+private EditText editText;
+editText =findViewById(R.id.edit_text);
+String text = editText.getText().toString();
+```
+
+#### ImageView
+
+Java 代码修改图片源
+
+```java
+private ImageView imageView;
+imageView =findViewById(R.id.image_view);
+imageView.setImageResource(R.drawable.img_2);
+```
+
+#### ProgressBar
+
+- 控件的共同属性 visibility
+
+  
+
+#### AlertDialog
 
