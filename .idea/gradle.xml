@@ -21,6 +21,8 @@
             <option value="$PROJECT_DIR$/app/0304listviewtest" />
             <option value="$PROJECT_DIR$/app/0305customlistview" />
             <option value="$PROJECT_DIR$/app/0306recyclerview" />
+            <option value="$PROJECT_DIR$/app/0307uibestpractice" />
+            <option value="$PROJECT_DIR$/app/uibestpractice" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

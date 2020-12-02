@@ -15,6 +15,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
 
     private List<Fruit> mFruitList;
 
+    // 控件缓存
     static class ViewHolder extends RecyclerView.ViewHolder {
         View fruitView;
         ImageView fruitImage;
@@ -23,8 +24,8 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
         public ViewHolder(View view) {
             super(view);
             fruitView = view;
-            fruitImage = (ImageView) view.findViewById(R.id.fruit_image);
-            fruitName = (TextView) view.findViewById(R.id.fruit_name);
+            fruitImage = view.findViewById(R.id.fruit_image);
+            fruitName = view.findViewById(R.id.fruit_name);
         }
     }
 
@@ -36,6 +37,8 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fruit_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
+
+        // 点击事件响应
         holder.fruitView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +69,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
         return holder;
     }
 
+    // 子视图进入屏幕显示时调用此方法
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Fruit fruit = mFruitList.get(position);
@@ -73,6 +77,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
         holder.fruitName.setText(fruit.getName());
     }
 
+    // 返回 List 长度
     @Override
     public int getItemCount() {
         return mFruitList.size();
