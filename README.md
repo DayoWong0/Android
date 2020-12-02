@@ -332,7 +332,18 @@ imageView.setImageResource(R.drawable.img_2);
   ```
 
 - [android:layout_gravity 和 android:gravity 的区别 - 蝈蝈俊 - 博客园](https://www.cnblogs.com/ghj1976/archive/2011/04/26/2029535.html)
-- layout_weight
+
+- [Android线性布局重要属性 - 知乎](https://zhuanlan.zhihu.com/p/29119838)
+
+  - Android中的gravity属性有两种形式：layout_gravity和gravity，这两种有什么区别呢？
+
+    从字面意思上就可以大概理解
+
+    第一个layout_gravity控制控件在父布局中的位置（和margin比较类似），
+
+    gravity可以控制控件中内容的显示位置（和padding比较类似）。
+
+    - <font color=red>我之前认为的 layout_gravity 中的父布局是：假如现在是在一个 ImageView 中，父布局我会认为是 LinearLayout ，这个理解是错误的。正确理解的父布局是类似于 css 中的盒子模型，则 layout_gravity 和 margin 类似</font>
 
 #### RelativeLayout
 
@@ -438,3 +449,17 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 });
 ```
 
+#### RecylcerView
+
+ListView 中的性能优化代码迁移到了 Adapter 类中，布局和 vo 类没变。
+
+##### 横向滚动和瀑布流布局
+
+- 修改 layout.xml 文件（我的代码里是新建的 布局文件，修改 FruitAdapter 中传入的布局为新建的布局文件）
+- Java 代码设置 layoutManager  相关参数
+
+##### 点击事件
+
+需要自己在 Adapter 类中定义控件的点击事件
+
+参照书上代码敲了，闪退。

@@ -16,6 +16,11 @@
             <option value="$PROJECT_DIR$/app/02activitytest" />
             <option value="$PROJECT_DIR$/app/02baseactivity" />
             <option value="$PROJECT_DIR$/app/0301uiwidgettest" />
+            <option value="$PROJECT_DIR$/app/0302uilayouttest" />
+            <option value="$PROJECT_DIR$/app/0303uicustomviews" />
+            <option value="$PROJECT_DIR$/app/0304listviewtest" />
+            <option value="$PROJECT_DIR$/app/0305customlistview" />
+            <option value="$PROJECT_DIR$/app/0306recyclerview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

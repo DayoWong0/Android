@@ -1,3 +1,8 @@
+include ':app:0306recyclerview'
+include ':app:0305customlistview'
+include ':app:0304listviewtest'
+include ':app:0303uicustomviews'
+include ':app:0302uilayouttest'
 include ':app:0301uiwidgettest'
 include ':app:02baseactivity'
 include ':app:02activitylifecycletest'
