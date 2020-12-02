@@ -321,3 +321,120 @@ imageView.setImageResource(R.drawable.img_2);
 
 #### AlertDialog
 
+### Layout
+
+#### LinearLayout
+
+- Layout 内控件的对齐方式
+
+  ```xml
+  android:layout_gravity="center"
+  ```
+
+- [android:layout_gravity 和 android:gravity 的区别 - 蝈蝈俊 - 博客园](https://www.cnblogs.com/ghj1976/archive/2011/04/26/2029535.html)
+- layout_weight
+
+#### RelativeLayout
+
+layout_*：是控件或者布局？的属性，相对于父布局或者 指定id的控件（仅RelativeLayout） 的位置，对 LinearLayout 和 RelativeLayout 都适用。
+
+![image-20201201170607952](img/README/image-20201201170607952.png)
+
+考虑多使用 layout_* 来定位，用 margin 屏幕适应性没那么好？
+
+
+
+#### 自定义布局
+
+```xaml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/title_bg">
+
+    <Button
+        android:id="@+id/title_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:background="@drawable/back_bg"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Title Text"
+        android:textColor="$fff"
+        android:textSize="24sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_bg"
+        android:text="Edit"
+        android:textAllCaps="false"
+        android:textColor="#fff"/>
+
+</LinearLayout>
+```
+
+![image-20201201175403184](img/README/image-20201201175403184.png)
+
+
+
+- [Android 中this、getContext()、getApplicationContext()、getApplication()、getBaseContext() 之间的区别 - petercao - 博客园](https://www.cnblogs.com/bluestorm/p/5842891.html)
+
+#### ListView
+
+#### 定制 ListView 
+
+构成
+
+- 实体类 Fruit
+
+  存放 Fruit 信息，等于 DAO 设计模式里的 vo，用在 FruitAdapter 中的泛型。
+
+- ListView 子项布局文件
+
+- FruitAdapter 
+
+  继承自 ArrayAdapter，重写 构造方法 和 getView 方法
+
+  getView 这部分代码没懂。
+
+- 将自定义的 FruitAdapter 添加到 ListView 中。
+
+##### ListView 性能优化
+
+- 重用 convertView
+- 新建内部类缓存控件
+
+##### ListView Item 点击事件
+
+```
+listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+})
+```
+
+```java
+ListView listView = findViewById(R.id.list_view);
+listView.setAdapter(fruitAdapter);
+listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Fruit fruit = fruitList.get(position);
+        Toast.makeText(MainActivity.this, fruit.getName(), Toast.LENGTH_SHORT).show();
+    }
+});
+```
+
