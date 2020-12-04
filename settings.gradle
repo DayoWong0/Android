@@ -1,3 +1,5 @@
+include ':app:0402fragmentbestpractice'
+include ':app:0401fragmenttest'
 include ':app:0307uibestpractice'
 include ':app:uibestpractice'
 include ':app:0306recyclerview'
