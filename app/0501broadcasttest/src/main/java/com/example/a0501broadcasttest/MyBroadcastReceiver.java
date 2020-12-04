@@ -10,5 +10,6 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String data = intent.getStringExtra("data");
         Toast.makeText(context, "Received in MyBroadcastReceiver, received data: " + data, Toast.LENGTH_SHORT).show();
+        abortBroadcast();
     }
 }

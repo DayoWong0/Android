@@ -481,6 +481,8 @@ P159
 
 ## 第五章 广播机制
 
+广播执行时间很短，执行时间超过 10s 会显示应用无响应，onReceive 方法中不能做太复杂的逻辑
+
 #### 动态注册广播接收器
 
 Java 代码注册
@@ -493,7 +495,7 @@ AndroidManifest.xml 里注册
 
 开机自启
 
-#### 发送广播
+#### 发送标准广播
 
 ```java
 // 发送广播                        
@@ -503,7 +505,7 @@ sendBroadcast(intent);
 
 5.3.1 中的发送标准广播发现问题
 
-- 使用 AndroidManifest.xml 注册 receiver，无效。查阅文档
+- 使用 AndroidManifest.xml 注册 receiver，无效。查阅以下文档后发现
 
   - [隐式广播例外情况  |  Android 开发者  |  Android Developers](https://developer.android.com/guide/components/broadcast-exceptions?hl=zh-cn)
   - [从 Android 8.0（API 级别 26）开始，系统对清单声明的接收器施加了额外的限制](https://developer.android.com/guide/components/broadcasts?hl=zh-cn#android_80)
@@ -513,3 +515,6 @@ sendBroadcast(intent);
   只能使用 动态注册。而前面一个例子中的 
 
   `android.intent.action.BOOT_COMPLETED` 是例外，依然可以使用。
+
+#### 发送有序广播
+
