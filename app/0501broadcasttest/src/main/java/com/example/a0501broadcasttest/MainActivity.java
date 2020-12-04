@@ -14,9 +14,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private IntentFilter intentFilter;
-    private NetworkChangeReceiver networkChangeReceiver;
     private static final String TAG = "MainActivity";
+
+    private IntentFilter intentFilter;
+    private IntentFilter intentFilterMyBroadcast;
+
+    private NetworkChangeReceiver networkChangeReceiver;
+    private MyBroadcastReceiver myBroadcastReceiver;
 
     // 无序（标准）广播
 //    @Override
@@ -62,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Broadcast have sent");
         });
 
-        IntentFilter intentFilterMyBroadcast = new IntentFilter();
+        intentFilterMyBroadcast = new IntentFilter();
         intentFilterMyBroadcast.addAction("com.example.a0501broadcasttest.MY_BROADCAST");
         intentFilterMyBroadcast.setPriority(100);
-        MyBroadcastReceiver myBroadcastReceiver = new MyBroadcastReceiver();
+        myBroadcastReceiver = new MyBroadcastReceiver();
         registerReceiver(myBroadcastReceiver, intentFilterMyBroadcast);
 
         intentFilter = new IntentFilter();
@@ -81,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(networkChangeReceiver);
+        unregisterReceiver(myBroadcastReceiver);
     }
 
     class NetworkChangeReceiver extends BroadcastReceiver{
