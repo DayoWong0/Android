@@ -64,11 +64,11 @@ Android 期末，之前只是简单修改了 booksource 里的源码，这次期
 
 - 2020/12/3
 
-  第 章
+  第 4 章
 
-- 2020/12/4（可选）
+- 2020/12/4
 
-  第 章
+  第 5 章
 
 ## 代码修改
 
@@ -479,3 +479,37 @@ P159
 
 ### 碎片实践
 
+## 第五章 广播机制
+
+#### 动态注册广播接收器
+
+Java 代码注册
+
+检测网络状态
+
+#### 静态注册广播接收器
+
+AndroidManifest.xml 里注册
+
+开机自启
+
+#### 发送广播
+
+```java
+// 发送广播                        
+Intent intent = new Intent("com.example.a0501broadcasttest.MY_BROADCAST");
+sendBroadcast(intent);
+```
+
+5.3.1 中的发送标准广播发现问题
+
+- 使用 AndroidManifest.xml 注册 receiver，无效。查阅文档
+
+  - [隐式广播例外情况  |  Android 开发者  |  Android Developers](https://developer.android.com/guide/components/broadcast-exceptions?hl=zh-cn)
+  - [从 Android 8.0（API 级别 26）开始，系统对清单声明的接收器施加了额外的限制](https://developer.android.com/guide/components/broadcasts?hl=zh-cn#android_80)
+
+  我用的 API 30，所以自定义的隐式广播用 AndroidManifest 文件注册接收器方法无效了。
+
+  只能使用 动态注册。而前面一个例子中的 
+
+  `android.intent.action.BOOT_COMPLETED` 是例外，依然可以使用。

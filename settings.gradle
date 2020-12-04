@@ -1,3 +1,4 @@
+include ':app:0501broadcasttest'
 include ':app:0402fragmentbestpractice'
 include ':app:0401fragmenttest'
 include ':app:0307uibestpractice'
