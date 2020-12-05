@@ -1,3 +1,4 @@
+include ':app:0901weviewtest'
 include ':app:0801notificationtest'
 include ':app:0702contactstest'
 include ':app:0701runtimepermissontest'
