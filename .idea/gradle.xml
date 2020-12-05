@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/app/0603databasetest" />
             <option value="$PROJECT_DIR$/app/0604litepaltest" />
             <option value="$PROJECT_DIR$/app/0701runtimepermissontest" />
+            <option value="$PROJECT_DIR$/app/0702contactstest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
