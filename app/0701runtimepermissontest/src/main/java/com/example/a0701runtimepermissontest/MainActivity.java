@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
             }else {
                 call();
             }
-            try {
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:10086"));
-                startActivity(intent);
-            }catch (SecurityException e){
-                e.printStackTrace();
-            }
+//            try {
+//                Intent intent = new Intent(Intent.ACTION_CALL);
+//                intent.setData(Uri.parse("tel:10086"));
+//                startActivity(intent);
+//            }catch (SecurityException e){
+//                e.printStackTrace();
+//            }
         });
     }
 
