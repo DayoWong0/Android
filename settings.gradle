@@ -1,3 +1,4 @@
+include ':app:0701runtimepermissontest'
 include ':app:0604litepaltest'
 include ':app:0603databasetest'
 include ':app:0602sharedpreferencestest'
