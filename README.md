@@ -70,6 +70,25 @@ Android 期末，之前只是简单修改了 booksource 里的源码，这次期
 
   第 5 章
 
+- 2020/12/5
+
+  第 6 章
+
+- 2020/12/6
+
+  第  章
+
+## 问题
+
+- Java 语言
+  - Array IO 不会
+  - 面向对象特征不熟悉
+  - 变量作用域、变量命名不规范，容易重复
+- 代码编写
+  - 逻辑混乱，需要先想好逻辑再写代码。
+- Android
+  - UI 定位不会
+
 ## 代码修改
 
 - booksource 里用的 support 包现在基本改为了 androidx 目录下的
@@ -517,4 +536,22 @@ sendBroadcast(intent);
   `android.intent.action.BOOT_COMPLETED` 是例外，依然可以使用。
 
 #### 发送有序广播
+
+## 第六章 数据存储
+
+### 文件存储
+
+- 预备知识
+
+  这属于 Java 语言没学好的问题，继承，文件 IO，Arra，后面有时间补充一下
+
+  - [IO - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1252599548343744/1255945227202752)
+
+### SharedPreference
+
+P 204 
+
+kv键值对存储在 xml 文件中
+
+### 数据库
 

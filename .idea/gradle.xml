@@ -27,7 +27,8 @@
             <option value="$PROJECT_DIR$/app/0501broadcasttest" />
             <option value="$PROJECT_DIR$/app/0502broadcasttest2" />
             <option value="$PROJECT_DIR$/app/0503broadcastbestpractice" />
-            <option value="$PROJECT_DIR$/app/uibestpractice" />
+            <option value="$PROJECT_DIR$/app/0601fileperisitencetest" />
+            <option value="$PROJECT_DIR$/app/0602sharedpreferencestest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
