@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/app/0601fileperisitencetest" />
             <option value="$PROJECT_DIR$/app/0602sharedpreferencestest" />
             <option value="$PROJECT_DIR$/app/0603databasetest" />
+            <option value="$PROJECT_DIR$/app/0604litepaltest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
