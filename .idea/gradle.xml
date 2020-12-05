@@ -33,6 +33,7 @@
             <option value="$PROJECT_DIR$/app/0604litepaltest" />
             <option value="$PROJECT_DIR$/app/0701runtimepermissontest" />
             <option value="$PROJECT_DIR$/app/0702contactstest" />
+            <option value="$PROJECT_DIR$/app/0801notificationtest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
