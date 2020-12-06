@@ -625,8 +625,6 @@ kv键值对存储在 xml 文件中
 
 对平常使用的那些操作更熟悉了。需要好好理解下。
 
-
-
 - HttpCallbackListener
 
   ```java
@@ -723,4 +721,21 @@ public static void sendHttpRequest(final String address, final HttpCallbackListe
   需要实现接口 HttpCallbackListener 的方法
 
 - 注意
-  - UI 只能在主线程操作 或者实现 runOnUiThread(() -> {} 接口，在子线程中调用 Toast 会出错。
+  - UI 只能在主线程操作 或者实现 runOnUiThread(() -> {} 接口，在子线程中调用 Toast 等会出错。
+
+## 第十章 服务
+
+- 服务适合执行不与用户交互且需要长期运行的任务。
+- 不依赖于界面
+- 依赖于应用程序，应用程序关闭，服务也会被关闭
+- 服务运行在主线程，需要自己在服务内部创建子线程
+
+### 多线程编程
+
+- 继承 Thread 类 实现 run 方法 start 方法开启线程
+- 实现 Runnable 接口
+
+### 子线程更新 UI
+
+- Handler
+- AsyncTask

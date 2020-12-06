@@ -36,6 +36,7 @@
             <option value="$PROJECT_DIR$/app/0801notificationtest" />
             <option value="$PROJECT_DIR$/app/0901weviewtest" />
             <option value="$PROJECT_DIR$/app/0902networktest" />
+            <option value="$PROJECT_DIR$/app/1001androidthreadtest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
