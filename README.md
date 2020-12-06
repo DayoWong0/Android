@@ -72,11 +72,11 @@ Android 期末，之前只是简单修改了 booksource 里的源码，这次期
 
 - 2020/12/5
 
-  第 6 章
+  第 6 7章
 
 - 2020/12/6
 
-  第  章
+  第  8 9 章
 
 ## 问题
 
@@ -567,3 +567,160 @@ kv键值对存储在 xml 文件中
 
 - [Android webview注入JS代码 修改网页内容操作 - 极客分享](https://www.geek-share.com/detail/2796370703.html)
 
+### OkHttp
+
+### 解析 XML
+
+- 服务器
+
+  [svenstaro/miniserve: 🌟 For when you really just want to serve some files over HTTP right now!](https://github.com/svenstaro/miniserve)
+
+- xml
+
+  ```xml
+  <apps>
+      <app>
+          <id>1</id>
+          <name>Google Maps</name>
+          <version>1.0</version>
+      </app>
+      <app>
+          <id>2</id>
+          <name>Chrome</name>
+          <version>2.1</version>
+      </app>
+      <app>
+          <id>3</id>
+          <name>Google Play</name>
+          <version>2.3</version>
+      </app>
+  </apps>
+  ```
+
+  
+
+### 解析 JSON
+
+- 访问错误
+
+  ```
+  java.net.UnknownServiceException: CLEARTEXT communication to 192.168.123.208 not permitted by network security policy
+  ```
+
+  ![image-20201206134947866](img/README/image-20201206134947866.png)
+
+  - [Android 8: Cleartext HTTP traffic not permitted - Stack Overflow](https://stackoverflow.com/questions/45940861/android-8-cleartext-http-traffic-not-permitted)
+
+    看这个的回答解决的
+
+    1. 将 http 转为 https 或者 新建 xml 配置文件，允许 http 链接
+
+  - [选择停用明文流量](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted)
+
+    从 Android 9（API 级别 28）开始 Android 的默认安全设置不允许 http 请求
+
+### 最佳实践
+
+这个最佳实践写了回调方法，让我耳目一新，以前从没这样的尝试。
+
+对平常使用的那些操作更熟悉了。需要好好理解下。
+
+
+
+- HttpCallbackListener
+
+  ```java
+  package com.example.a0902networktest;
+  
+  public interface HttpCallbackListener {
+  
+      void onFinish(String response);
+  
+      void onError(Exception e);
+  
+  }
+  
+  ```
+
+- HttpUtil
+
+  ```java
+  public class HttpUtil {
+  
+      public static void sendHttpRequest(final String address, final HttpCallbackListener listener) {
+          new Thread(() -> {
+              HttpURLConnection connection = null;
+              try {
+                  URL url = new URL(address);
+                  connection = (HttpURLConnection) url.openConnection();
+                  connection.setRequestMethod("GET");
+                  connection.setConnectTimeout(8000);
+                  connection.setReadTimeout(8000);
+                  connection.setDoInput(true);
+                  connection.setDoOutput(true);
+                  InputStream in = connection.getInputStream();
+                  BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                  StringBuilder response = new StringBuilder();
+                  String line;
+                  while ((line = reader.readLine()) != null) {
+                      response.append(line);
+                  }
+                  if (listener != null) {
+                      // 回调onFinish()方法
+                      listener.onFinish(response.toString());
+                  }
+              } catch (Exception e) {
+                  if (listener != null) {
+                      // 回调onError()方法
+                      listener.onError(e);
+                  }
+              } finally {
+                  if (connection != null) {
+                      connection.disconnect();
+                  }
+              }
+          }).start();
+      }
+  }
+  ```
+
+- 调用 HttpUtil.sendHttpRequest方法
+
+  ```java
+  HttpUtil.sendHttpRequest("https://www.baidu.com", new HttpCallbackListener() {
+      @Override
+      public void onFinish(String response) {
+          showResponse(response);
+      }
+  
+      @Override
+      public void onError(Exception e) {
+          showResponse("error in sendHttpRequest ");
+      }
+  });
+  ```
+
+  
+
+```java
+// 好好看下 HttpUtil 下的这个方法
+public static void sendHttpRequest(final String address, final HttpCallbackListener listener)
+```
+
+- 定义
+  - 定义 Interface：HttpCallbackListener
+
+  - 此 Interface：HttpCallbackListener 作为 sendHttpRequest 的第二个参数
+
+    ```java
+    public static void sendHttpRequest(final String address, final HttpCallbackListener listener)
+    ```
+
+    sendHttpRequest 方法中网络请求失败调用 Interface ：HttpCallbackListener 的 onError 方法，成功调用 onFinish 方法。
+
+- 调用 HttpUtil.sendHttpRequest 方法
+
+  需要实现接口 HttpCallbackListener 的方法
+
+- 注意
+  - UI 只能在主线程操作 或者实现 runOnUiThread(() -> {} 接口，在子线程中调用 Toast 会出错。

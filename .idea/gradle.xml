@@ -35,6 +35,7 @@
             <option value="$PROJECT_DIR$/app/0702contactstest" />
             <option value="$PROJECT_DIR$/app/0801notificationtest" />
             <option value="$PROJECT_DIR$/app/0901weviewtest" />
+            <option value="$PROJECT_DIR$/app/0902networktest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
