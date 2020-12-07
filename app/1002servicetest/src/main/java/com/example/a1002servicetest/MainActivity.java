@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     private Button startService;
 
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private Button bindService;
 
     private Button unbindService;
+
+    private Button startIntentService;
 
     private MyService.DownloadBinder downloadBinder;
 
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         stopService = findViewById(R.id.stop_service);
         bindService = findViewById(R.id.bind_service);
         unbindService = findViewById(R.id.unbind_service);
+        startIntentService = findViewById(R.id.start_intent_service);
 
         startService.setOnClickListener(v->{
             Intent intent = new Intent(this, MyService.class);
@@ -61,7 +67,12 @@ public class MainActivity extends AppCompatActivity {
 
         unbindService.setOnClickListener(v->{
             unbindService(connection);
+        });
 
+        startIntentService.setOnClickListener(v->{
+            Log.d(TAG, "onCreate: Thread id is " + Thread.currentThread().getId());
+            Intent intentService = new Intent(this, MyIntentService.class);
+            startService(intentService);
         });
     }
 }

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a1002servicetest">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +13,12 @@
         android:theme="@style/Theme.Android">
         <service
             android:name=".MyService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <service
+            android:name=".MyIntentService"
             android:enabled="true"
             android:exported="true">
         </service>

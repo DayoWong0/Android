@@ -3,8 +3,9 @@
 ## 参考
 
 - [guolindev/booksource: 《第一行代码 第2版》全书源代码](https://github.com/guolindev/booksource)
-
 - 《第一行代码》
+- [DayoWong0/android-resources: 《第一行代码第三版》随书资源](https://github.com/DayoWong0/android-resources)
+- ![第一行代码——Android（第3版）-思维导图_0](img/README/%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E2%80%94%E2%80%94Android%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89-%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE_0.png)
 
 ## 前言
 
@@ -721,6 +722,7 @@ public static void sendHttpRequest(final String address, final HttpCallbackListe
   需要实现接口 HttpCallbackListener 的方法
 
 - 注意
+  
   - UI 只能在主线程操作 或者实现 runOnUiThread(() -> {} 接口，在子线程中调用 Toast 等会出错。
 
 ## 第十章 服务
@@ -739,3 +741,67 @@ public static void sendHttpRequest(final String address, final HttpCallbackListe
 
 - Handler
 - AsyncTask
+
+### 前台服务
+
+- 需要权限
+  - [Permission Denial: startForeground requires android.permission.FOREGROUND_SERVICE - Stack Overflow](https://stackoverflow.com/questions/52382710/permission-denial-startforeground-requires-android-permission-foreground-servic)
+
+- 报错
+
+  ```
+  Bad notification for startForeground
+  ```
+
+  [service - startForeground fail after upgrade to Android 8.1 - Stack Overflow](https://stackoverflow.com/questions/47531742/startforeground-fail-after-upgrade-to-android-8-1)
+
+  - ```java
+    Notification notification = new Notification.Builder(this, NOTIFICATION_CHANNEL_ID ){...}
+    ```
+
+    构造函数需要增加 channelID，且 channel 需要用 NotificationManager 创建
+
+  - 参考
+
+    - [android.app.NotificationManager#createNotificationChannel](https://www.programcreek.com/java-api-examples/?class=android.app.NotificationManager&method=createNotificationChannel)
+    - [android-resources/MyService.kt at master · DayoWong0/android-resources](https://github.com/DayoWong0/android-resources/blob/master/%E6%BA%90%E7%A0%81/%E7%AC%AC10%E7%AB%A0/ServiceTest/app/src/main/java/com/example/servicetest/MyService.kt)
+
+  完整代码
+
+  ```java
+  @Override
+  public void onCreate() {
+      super.onCreate();
+      Log.d(TAG, "onCreate: ");
+      NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+          NotificationChannel channel = new NotificationChannel("my_service",
+                                                                "前台Service通知",
+                                                                NotificationManager.IMPORTANCE_LOW);
+          manager.createNotificationChannel(channel);
+      }
+  
+      Intent intent = new Intent(this, MainActivity.class);
+      PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
+      Notification notification = new NotificationCompat.Builder(this, "my_service")
+          .setContentTitle("THis is content title")
+          .setContentText("THis is content text")
+          .setWhen(System.currentTimeMillis())
+          .setSmallIcon(R.mipmap.ic_launcher)
+          .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+          .setContentIntent(pi)
+          .build();
+      // 前台服务
+      startForeground(1, notification);
+  }
+  ```
+
+  需要声明权限
+
+  ```xml
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  ```
+
+### IntentService
+
+服务中自动开启线程、自动关闭的类。
