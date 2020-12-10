@@ -1,7 +1,5 @@
 package com.example.a0503broadcastbestpractice;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;

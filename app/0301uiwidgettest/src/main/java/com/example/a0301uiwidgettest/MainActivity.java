@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // v.getId()：获得视图的 id
         switch (v.getId()){
             case R.id.button:
-                // 点击逻辑
                 // 获取输入框中的内容 Toast 显示
                 String text = editText.getText().toString();
                 Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 imageView.setImageResource(R.drawable.img_2);
                 break;
             case R.id.button2:
+//                视图显示和消失切换
                 if (progressBar.getVisibility() == View.GONE){
                     progressBar.setVisibility(View.VISIBLE);
                 }else {
@@ -82,14 +82,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressBar1.setProgress(progress);
                 break;
             case R.id.button4:
+//                AlertDialog
                 AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                 dialog.setTitle("THis is a Alert Dialog")
                         .setMessage("Something important")
                         .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("取消", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                Toast.makeText(MainActivity.this, "你点击了取消", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .setNegativeButton("退出", new DialogInterface.OnClickListener() {

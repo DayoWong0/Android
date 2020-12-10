@@ -22,57 +22,66 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
         Button button1 = findViewById(R.id.button_1);
-//        button1.setOnClickListener(
-//                //v ->Toast.makeText(FirstActivity.this, "You Clicked Button 1", Toast.LENGTH_SHORT).show()
-//                // finish 销毁活动
+        Button button2 = findViewById(R.id.button_2);
+        Button button3 = findViewById(R.id.button_3);
+        Button button4 = findViewById(R.id.button_4);
+        Button button5 = findViewById(R.id.button_5);
+        Button button6 = findViewById(R.id.button_6);
+        Button button7 = findViewById(R.id.button_7);
+        Button button8 = findViewById(R.id.button_8);
+//        点击后的 Toast 事件
+        button1.setOnClickListener(
+                v ->Toast.makeText(FirstActivity.this, "You Clicked Button 1", Toast.LENGTH_SHORT).show()
+                // finish 销毁活动
 //                v -> finish()
-//        );
+        );
 
-//        //显式 intent 启动活动, 指定启动某一个活动
-//        button1.setOnClickListener(v -> {
-//            Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-//            startActivity(intent);
-//        });
+        //显式 intent 启动活动, 指定启动某一个活动，这里指定启动 SecondActivity
+        button2.setOnClickListener(v -> {
+            Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+            startActivity(intent);
+        });
 
-//        button1.setOnClickListener(v -> {
-//            Intent intent = new Intent("com.example.a02activitytest.ACTION_START");
-//            //intent 默认携带 category：android.intent.category.DEFAULT
-//            startActivity(intent);
-//        });
+        //隐式 intent 启动活动 使用默认的 category
+        button3.setOnClickListener(v -> {
+            Intent intent = new Intent("com.example.a02activitytest.ACTION_START");
+            //intent 默认携带 category：android.intent.category.DEFAULT
+            startActivity(intent);
+        });
 
-//        // 隐式启动活动，让系统去寻找相同的 action 和 category
-//        button1.setOnClickListener(v -> {
-//            Intent intent = new Intent("com.example.a02activitytest.ACTION_START");
-//            // 添加自定义的 category
-//            intent.addCategory("com.example.a02activitytest.MyCategory");
-//            startActivity(intent);
-//        });
+        // 隐式 intent 启动活动，让系统去寻找匹配的 action 和 category, action 和 category 在 AndroidManifest 中注册
+        button4.setOnClickListener(v -> {
+            Intent intent = new Intent("com.example.a02activitytest.ACTION_START");
+            // 添加自定义的 category
+            intent.addCategory("com.example.a02activitytest.MyCategory");
+            startActivity(intent);
+        });
 
-//        // 调用浏览器打开网站
-//        button1.setOnClickListener(v -> {
-//            Intent intent = new Intent(Intent.ACTION_VIEW);
-//            // 此方法接受 Uri 参数，所以需要先调用 Uri.parse
-//            intent.setData(Uri.parse("https://www.baidu.com"));
-//            startActivity(intent);
-//        });
+        // 隐式 intent 调用浏览器打开网站
+        button5.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            // 此方法接受 Uri 参数，所以需要先调用 Uri.parse
+            intent.setData(Uri.parse("https://www.baidu.com"));
+            startActivity(intent);
+        });
 
-//        // 点击打开拨号页面
-//        button1.setOnClickListener(v -> {
-//            Intent intent = new Intent(Intent.ACTION_DIAL);
-//            intent.setData(Uri.parse("tel:1001011"));
-//            startActivity(intent);
-//        });
+        // 隐式 intent 点击打开拨号页面 并携带电话号码
+        button6.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:1001011"));
+            startActivity(intent);
+        });
 
-//        // 传递数据到另一个 Activity
-//        button1.setOnClickListener(v -> {
-//            String data = "data from FirstActivity";
-//            Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-//            intent.putExtra("extra_data", data);
-//            startActivity(intent);
-//        });
+        // intent 携带数据到另一个 SecondActivity
+        button7.setOnClickListener(v -> {
+            String data = "data from FirstActivity";
+            Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+            intent.putExtra("extra_data", data);
+            startActivity(intent);
+        });
 
-        // 希望从另一个活动中获得返回的数据 配合 onActivityResult 方法使用
-        button1.setOnClickListener(v -> {
+        // startActivityForResult 希望从另一个活动中获得返回的数据 配合 onActivityResult 方法使用
+        button8.setOnClickListener(v -> {
             Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
             // 请求码需要唯一，用做此类的 onActivityResult 方法的参数
             startActivityForResult(intent, 1);

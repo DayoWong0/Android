@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         startIntentService.setOnClickListener(v->{
+//            打印当前 Thread id
             Log.d(TAG, "onCreate: Thread id is " + Thread.currentThread().getId());
             Intent intentService = new Intent(this, MyIntentService.class);
             startService(intentService);

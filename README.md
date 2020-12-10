@@ -745,8 +745,9 @@ public static void sendHttpRequest(final String address, final HttpCallbackListe
 ### 前台服务
 
 - 需要权限
-  - [Permission Denial: startForeground requires android.permission.FOREGROUND_SERVICE - Stack Overflow](https://stackoverflow.com/questions/52382710/permission-denial-startforeground-requires-android-permission-foreground-servic)
-
+  
+- [Permission Denial: startForeground requires android.permission.FOREGROUND_SERVICE - Stack Overflow](https://stackoverflow.com/questions/52382710/permission-denial-startforeground-requires-android-permission-foreground-servic)
+  
 - 报错
 
   ```
@@ -805,3 +806,47 @@ public static void sendHttpRequest(final String address, final HttpCallbackListe
 ### IntentService
 
 服务中自动开启线程、自动关闭的类。
+
+## 检查项目
+
+- 活动
+  - 02activitylifecycletest
+  - 02activitytest
+
+- UI
+
+  - 0301uiwidgettest
+
+    常用控件的使用以及点击事件绑定
+
+  - 0302uilayouttest 
+
+    - RelativeLayout
+
+  - 0303uicustomviews
+
+    自定义布局以及 布局的 include
+
+  - 0304listviewtest
+
+    最基本的 listview 使用
+
+  - 0305customlistview
+
+    自定义 listView，安卓课设题目1，可以用这个实现
+
+  - 0306recyclerview
+
+    Android 官方建议使用 recyclerview 替代 listView，打算课程设计1用这个完成。
+
+- broadcast
+  - 0501broadcasttest
+
+## 强制退出登录
+
+- sharedpreference可以保存账号密码
+- 接受广播强制退出
+
+### 思路
+
+LoginAcitivity 为启动活动，先从 preference 里判断是否有上次保存的账号密码信息，若有则读取，若没有，则用户输入账号密码，账号密码正确则保存信息。

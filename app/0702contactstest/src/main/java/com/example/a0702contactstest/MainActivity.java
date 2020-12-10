@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         ListView contactsView = findViewById(R.id.contacts_view);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, contactsList);
         contactsView.setAdapter(adapter);
+//        运行时申请权限
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 1);
         }else {

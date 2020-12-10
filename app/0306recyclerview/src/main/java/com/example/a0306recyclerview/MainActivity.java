@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
         initFruits();
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         // 此 RecyclerView 使用线性布局
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 ////        //水平滚动选项
 ////        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         //瀑布流滚动布局
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+//        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new FruitAdapter(fruitList));
     }

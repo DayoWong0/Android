@@ -7,6 +7,7 @@ import androidx.core.app.NotificationManagerCompat;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,16 +30,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.send_notice:
-                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//                注册通知的 channel
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationChannel channel = new NotificationChannel("my_service",
+                            "前台Service通知",
+                            NotificationManager.IMPORTANCE_LOW);
+                    manager.createNotificationChannel(channel);
+                }
 
-                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-                String channelId = "default";
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-//                    String channelName = "默认通知";
-//                    notificationManager.createNotificationChannel(new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH));
-//                }
-
-                Notification notification = new NotificationCompat.Builder(this, channelId)
+                Notification notification = new NotificationCompat.Builder(this, "my_service")
                         .setContentTitle("This is content title")
                         .setContentText("This is content text")
                         .setWhen(System.currentTimeMillis())
