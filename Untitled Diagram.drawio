@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-06-18T07:18:14.901Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="cnBWMVuvT3t_Q-OG0aMS" version="18.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-18T07:22:30.539Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="r7veHARxZjI0EIZPCz0k" version="18.0.2" type="github">
   <diagram id="UTTcR3mZGYKN0iP_9yWg" name="Page-1">
-    <mxGraphModel dx="1413" dy="776" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2012" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -27,6 +27,9 @@
         </mxCell>
         <mxCell id="1OQX4jLtgAW1z37ysqUo-8" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
           <mxGeometry x="-270" y="380" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1OQX4jLtgAW1z37ysqUo-14" value="&lt;div style=&quot;box-sizing:border-box;width:100%;background:#e4e4e4;padding:2px;&quot;&gt;weather&lt;/div&gt;&lt;table style=&quot;width:100%;font-size:1em;&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;天气id&amp;nbsp;id int auto_increment&amp;nbsp;PRIMARY KEY&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;日期 date varchar(255) NOT NULL&lt;br&gt;天气&amp;nbsp;`weather` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL&lt;br&gt;&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;白天温度&amp;nbsp;`day_temperature` int(11) DEFAULT NULL&lt;br&gt;夜间温度&amp;nbsp;`night_temperature` int(11) DEFAULT NULL&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="540" width="420" height="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
