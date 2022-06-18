@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-06-18T09:58:17.773Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="JzY9n7ZTMkqNB1LmCXwu" version="18.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-18T09:59:44.209Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="duEvQrJPGLtXINBdq3o0" version="18.0.2" type="github">
   <diagram id="UTTcR3mZGYKN0iP_9yWg" name="Page-1">
-    <mxGraphModel dx="2012" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1808" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -32,7 +32,7 @@
           <mxGeometry x="-250" y="710" width="420" height="130" as="geometry" />
         </mxCell>
         <mxCell id="1OQX4jLtgAW1z37ysqUo-20" value="Client" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="740" y="435" width="140" height="300" as="geometry" />
+          <mxGeometry x="730" y="435" width="110" height="295" as="geometry" />
         </mxCell>
         <mxCell id="1OQX4jLtgAW1z37ysqUo-27" value="1.socket" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1OQX4jLtgAW1z37ysqUo-20">
           <mxGeometry x="87" y="65" width="60" height="20" as="geometry" />
@@ -58,17 +58,14 @@
         <mxCell id="1OQX4jLtgAW1z37ysqUo-25" value="WeatherService&lt;br&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="1000" y="435" width="100" height="290" as="geometry" />
         </mxCell>
-        <mxCell id="1OQX4jLtgAW1z37ysqUo-28" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" edge="1" parent="1OQX4jLtgAW1z37ysqUo-25" target="1OQX4jLtgAW1z37ysqUo-24">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-80" y="99.58000000000004" as="sourcePoint" />
-            <mxPoint x="80" y="99.58000000000004" as="targetPoint" />
-            <Array as="points">
-              <mxPoint y="99.58000000000004" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="1OQX4jLtgAW1z37ysqUo-29" value="构造方法&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="1200" y="510" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1OQX4jLtgAW1z37ysqUo-30" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="920" y="500" as="sourcePoint" />
+            <mxPoint x="1080" y="500" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
